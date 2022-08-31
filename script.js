@@ -20,14 +20,30 @@ function userInput(button) {
         inputOperator(button.textContent);
     } else if (button.className === 'calculate'){
         calculate();
+    } else if (button.className === 'delete') {
+        backspace();
     }
 };
 
+function backspace() {
+    let string = input.textContent.toString();
+    string = string.substring(0, (string.length - 1));
+    input.textContent = string;
+}
+
 function calculate() {
+    if (operatorInUse == ''){
+        return;
+    }
     if (answerbox.textContent != '' && input.textContent != '') {
         inputOperator(operatorInUse);
+    } else if (input.textContent != '') {
+        answerbox.textContent = `${a} ${operatorInUse}`;
     }
+
     answerbox.textContent = a;
+    operatorInUse = '';
+    
 }
 
 function inputOperator(operator) {
