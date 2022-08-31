@@ -8,6 +8,19 @@ body {
     background-color: white;
     width: 360px;
     height: 80px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.answerbox {
+    width: 360px;
+    height: 40px;
+}
+
+.input {
+    width:360px;
+    height:40px;
 }
 
 .calculator {
