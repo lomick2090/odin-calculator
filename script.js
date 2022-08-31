@@ -18,8 +18,17 @@ function userInput(button) {
         inputNumber(button.textContent);
     } else if (button.className === 'operator') {
         inputOperator(button.textContent);
+    } else if (button.className === 'calculate'){
+        calculate();
     }
 };
+
+function calculate() {
+    if (answerbox.textContent != '' && input.textContent != '') {
+        inputOperator(operatorInUse);
+    }
+    answerbox.textContent = a;
+}
 
 function inputOperator(operator) {
 
@@ -34,6 +43,7 @@ function inputOperator(operator) {
             a = doMath(a , b , operatorInUse);
             b = '';
             input.textContent = ''; 
+            answerbox.textContent = `${a} ${operator}`;   
     } else {
         answerbox.textContent = `${a} ${operator}`;
     }
@@ -59,9 +69,9 @@ function doMath(a, b , operator) {
             answer = a - b;
             break;
     }
-    if (answer % 1 != 0 ) answer = answer.toFixed(5);
+    if (answer % 1 != 0 ) {answer = answer.toFixed(5);}
     answerbox.textContent = answer;
-    return answer;
+    return parseFloat(answer);
 };
 
 function inputNumber(num) {
