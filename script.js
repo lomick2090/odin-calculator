@@ -15,6 +15,9 @@ function userInput(button) {
         operatorInUse = '';
         answer = '';
     } else if (button.className === 'number') {
+        if( input.textContent.length > 11) {
+            return;
+        }
         inputNumber(button.textContent);
     } else if (button.className === 'operator') {
         inputOperator(button.textContent);
