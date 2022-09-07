@@ -47,7 +47,6 @@ function calculate() {
 }
 
 function inputOperator(operator) {
-
     if (a == '' || a == undefined){
         if (input.textContent != '') {
             a = parseInt(input.textContent);
